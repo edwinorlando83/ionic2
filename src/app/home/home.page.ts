@@ -6,7 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-
+  nombre;
+  edad=30;
+  apellido='Cholota';
+  fecha;
+  sueldo=400.55;
+  imagen='assets/otros.jpg';
+  texto;
+  constructor() {
+    this.nombre='Orlando';
+  } 
+  cambiarNombre(){
+    this.nombre = this.texto;
+  }
 }
