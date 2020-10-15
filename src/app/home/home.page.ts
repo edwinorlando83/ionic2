@@ -22,6 +22,7 @@ export class HomePage {
   listaUsuarios2: MUsuario[];
   data:Data;
   condicion=false;
+  condicion2= 0;
   constructor() {
     this.nombre='Orlando';
     this.usuariosList();
@@ -30,8 +31,8 @@ export class HomePage {
     this.nombre = this.texto;
     let n3 = Number(this.n1);
     this.n2 = Number(this.n1);
-
     this.condicion = !this.condicion;
+    this.condicion2 = 1;
   }
 
   usuariosList() {
