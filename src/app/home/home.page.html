@@ -9,12 +9,17 @@
 <ion-content [fullscreen]="true">
   <h1 class="colorverde"> Curso de IONIC </h1>
    !Hola Mundo!, hoy es martes
-      <p> {{nombre}}  </p>   
+      <p> {{nombre | uppercase }}  </p>   
       <ion-input [(ngModel)]="texto" >  </ion-input>
       <ion-button  (click)="cambiarNombre()" > Cambiar Nombre  </ion-button>
-     
+   <!--
     <img [src]="imagen"/>
        Con interpolacion 
     <img src="{{imagen}}"/>
-
+ -->  
+ <ion-button *ngFor="let u of listaUsuarios" > {{u.correo}}  </ion-button>
+ <div *ngFor="let u of listaUsuarios"> 
+   {{u.correo}}  
+ </div>
+ <p *ngIf="condicion" > Error </p>
 </ion-content>
