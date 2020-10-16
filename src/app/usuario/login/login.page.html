@@ -5,6 +5,30 @@
 </ion-header>
 
 <ion-content>
- <ion-button routerLink="/editarperfil" routerLinkActive="router-link-active" >  ir a Home </ion-button>
- <ion-button (click)="irapagina()"  >  Ir A 2 </ion-button>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="danger">
+        <b> Ingreso al Sistema </b>
+      </ion-card-title>
+      <img height="60px" src="assets/logo.png" />
+    </ion-card-header>
+    <ion-card-content>
+
+
+      <form [formGroup]="loginForm">
+
+        <ion-item>
+          <ion-input formControlName="usuarionombre" placeholder="Usuario">     </ion-input>         
+        </ion-item>
+
+
+        <ion-item>
+          <ion-input formControlName="password" placeholder="Contraseña" type="password">        </ion-input>
+       
+        </ion-item>
+
+      </form>
+      <ion-button expand="block" (click)="autentificar( )" [disabled]="!loginForm.valid">Ingresar</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
