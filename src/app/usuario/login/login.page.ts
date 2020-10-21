@@ -1,8 +1,10 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
 import { AlertController, LoadingController } from '@ionic/angular';
+import { ConeccionapiService } from 'src/app/coneccionapi.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,25 +14,40 @@ import { AlertController, LoadingController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
   constructor(
-    private formBuilder: FormBuilder,           
-    private  ld : LoadingController,
-    public alertController: AlertController
+    private formBuilder: FormBuilder,
+    private ld: LoadingController,
+    public alertController: AlertController,
+    private cnx: ConeccionapiService
+
   ) {
- 
+
     this.loginForm = formBuilder.group({
-      usuarionombre: ['', Validators.required],
-      password: ['', Validators.required] 
+      usuarionombre: ['mi@correo.com', Validators.required],
+      password: ['admin', Validators.required]
     });
 
 
   }
-   autentificar() {
-   
-    this.presentAlert('Error!');
-    
+  autentificar() {
+    this.cnx.login(this.loginForm.value.usuarionombre, this.loginForm.value.password).subscribe(
+      ok => {
+
+        console.log(ok);
+
+      },
+      error => {
+        console.log(error);
+      }
+
+    );
+
+
   }
 
   ngOnInit() {
+
+
+
   }
 
   async presentAlert(mensaje) {

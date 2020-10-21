@@ -1,8 +1,8 @@
 export class MUsuario {
-    correo: String;
-    nombres: String;
-    rol: String;
-    activo: boolean;
-    created: Date; 
+    usu_correo: String;
+    usu_nombres: String;
+    rol_codigo: number;  
    
 }
+
+ 
