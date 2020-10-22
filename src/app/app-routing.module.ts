@@ -34,6 +34,14 @@ const routes: Routes = [
     path: 'tabprincipal',
     loadChildren: () => import('./tabprincipal/tabprincipal.module').then( m => m.TabprincipalPageModule)
   },
+  {
+    path: 'lista',
+    loadChildren: () => import('./usuario/lista/lista.module').then( m => m.ListaPageModule)
+  },
+  {
+    path: 'listarol',
+    loadChildren: () => import('./usuario/listarol/listarol.module').then( m => m.ListarolPageModule)
+  },
 
  
 ];

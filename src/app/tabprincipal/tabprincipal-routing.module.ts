@@ -9,38 +9,29 @@ import { TabprincipalPage } from './tabprincipal.page';
         component: TabprincipalPage,
         children: [
           {
-            path: 'home',
+            path: 'litarol',
             children: [
               {
                 path: '',
-                loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+                loadChildren: () => import('../usuario/listarol/listarol.module').then(m => m.ListarolPageModule)
               }
             ]
           },
           {
-            path: 'registro',
+            path: 'listausuario',
             children: [
               {
                 path: '',
-                loadChildren: () => import('../usuario/registro/registro.module').then(m => m.RegistroPageModule)
+                loadChildren: () => import('../usuario/lista/lista.module').then(m => m.ListaPageModule)
               }
             ]
           } 
-          ,
-          {
-            path: 'editarperfil',
-            children: [
-              {
-                path: '',
-                loadChildren: () => import('../usuario/editarperfil/editarperfil.module').then(m => m.EditarperfilPageModule)
-              }
-            ]
-          } 
+          
         ]
       },
       {
         path: '',
-        redirectTo: '/tabprincipal/home',
+        redirectTo: '/tabprincipal/litarol',
         pathMatch: 'full'
       }
     ];

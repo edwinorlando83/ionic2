@@ -9,7 +9,10 @@ export class RegistroPage implements OnInit {
 
   constructor() { }
 
+  nombre;
   ngOnInit() {
+
+   this.nombre = localStorage.getItem("nombre");
   }
 
 }

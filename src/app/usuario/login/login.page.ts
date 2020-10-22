@@ -49,9 +49,10 @@ export class LoginPage implements OnInit {
        
         }
         else{
-       // let usuario = Object.assign(new MUsuario, resultado);         
+          let usuario = Object.assign(new MUsuario, resultado);         
           this.router.navigateByUrl('tabprincipal');
-
+          localStorage.setItem("correo",resultado.usu_correo  );
+          localStorage.setItem("nombre",resultado.usu_nombres );
         }
 
 
