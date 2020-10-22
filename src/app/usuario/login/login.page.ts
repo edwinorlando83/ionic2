@@ -1,9 +1,11 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ConeccionapiService } from 'src/app/coneccionapi.service';
+import { MUsuario } from 'src/app/modelos/usuario.modelo';
 
 
 @Component({
@@ -17,7 +19,9 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private ld: LoadingController,
     public alertController: AlertController,
-    private cnx: ConeccionapiService
+    private cnx: ConeccionapiService,
+    private loadingController: LoadingController,
+    private router:Router
 
   ) {
 
@@ -28,26 +32,40 @@ export class LoginPage implements OnInit {
 
 
   }
-  autentificar() {
-    this.cnx.login(this.loginForm.value.usuarionombre, this.loginForm.value.password).subscribe(
-      ok => {
+  async autentificar() {
 
-        console.log(ok);
+    const loading = await this.loadingController.create({
+      message: 'Verificando...',
+    });
+    loading.present();
+
+
+    this.cnx.login(this.loginForm.value.usuarionombre, this.loginForm.value.password).subscribe(
+     ( resultado :any)  => {
+        loading.dismiss();
+        console.log(resultado);
+        if (resultado.usu_correo == undefined) {
+          this.presentAlert('Error en los datos');
+       
+        }
+        else{
+       // let usuario = Object.assign(new MUsuario, resultado);         
+          this.router.navigateByUrl('tabprincipal');
+
+        }
+
 
       },
       error => {
+        loading.dismiss();
         console.log(error);
       }
-
     );
 
 
   }
 
   ngOnInit() {
-
-
-
   }
 
   async presentAlert(mensaje) {
@@ -57,9 +75,9 @@ export class LoginPage implements OnInit {
       message: mensaje,
       buttons: ['OK']
     });
-
     await alert.present();
   }
+ 
 
 
 }

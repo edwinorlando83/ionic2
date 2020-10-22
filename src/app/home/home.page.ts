@@ -36,7 +36,7 @@ export class HomePage {
   }
 
   usuariosList() {
-    this.listaUsuarios = [
+    /*this.listaUsuarios = [
         {
             correo: 'correo1@correo.com',
             nombres: 'nombre1',
@@ -73,7 +73,7 @@ export class HomePage {
             created: new Date(),
         }
     ];
-
+*/
    
 }
 
