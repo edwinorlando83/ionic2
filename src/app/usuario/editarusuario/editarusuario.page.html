@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editarusuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content  >
+  <ion-grid>
+    <ion-row>
+      <ion-col offset-xl="4" size-xl="3" offset-lg="3" size-lg="4" offset-md="3" size-md="6">
+
+        <form [formGroup]="objForm">
+          <ion-item>
+            <ion-label position="floating">Correo</ion-label>
+            <ion-input required type="email" formControlName="usu_correo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input required type="text" formControlName="usu_nombres">
+            </ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input required type="password" formControlName="usu_password">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Re Password</ion-label>
+            <ion-input required type="password" formControlName="rusu_password">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating" >Rol</ion-label>
+            <ion-select placeholder="Seleccione uno" formControlName="rol_codigo">
+              <ion-select-option  *ngFor="let item of  this.lstRol" value="{{item.rol_codigo}}">{{item.rol_nombre}}</ion-select-option>
+            
+            </ion-select>
+          </ion-item>
+
+       
+        </form>
+        <ion-button expand="block" [disabled]="!objForm.valid   " (click)="registromail()"> Agregar </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

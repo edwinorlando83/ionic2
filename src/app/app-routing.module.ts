@@ -42,6 +42,14 @@ const routes: Routes = [
     path: 'listarol',
     loadChildren: () => import('./usuario/listarol/listarol.module').then( m => m.ListarolPageModule)
   },
+  {
+    path: 'agregarusuario',
+    loadChildren: () => import('./usuario/agregarusuario/agregarusuario.module').then( m => m.AgregarusuarioPageModule)
+  },
+  {
+    path: 'editarusuario',
+    loadChildren: () => import('./usuario/editarusuario/editarusuario.module').then( m => m.EditarusuarioPageModule)
+  },
 
  
 ];

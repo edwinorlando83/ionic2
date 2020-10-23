@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConeccionapiService {
- //  URL = 'http://apirest.ingenio-ti.net/';
-  URL = 'http://192.168.100.9/ionic/';
+  //  URL = 'http://apirest.ingenio-ti.net/';
+  URL = 'http://localhost/ionic/';
   constructor(public http: HttpClient ) { }
 
   login(inusuario, inpassword) {
@@ -24,6 +24,30 @@ export class ConeccionapiService {
     return this.http.post(urlServer, body, { responseType: 'json' });
   }
 
+  listaRol( ) {
+    const urlServer = this.URL + 'usuarios.php';
+    let body = new HttpParams();   
+    body = body.set('op', 'lista-rol');    
+    return this.http.post(urlServer, body, { responseType: 'json' });
+  }
+ 
+  insertarUsuario(usu_correo, usu_nombres ,usu_password,  rol_codigo  ) {
+    const urlServer = this.URL + 'usuarios.php';
+    let body = new HttpParams();
+    body = body.set('usu_correo', usu_correo);
+    body = body.set('usu_nombres', usu_nombres);
+    body = body.set('usu_password', usu_password);
+    body = body.set('rol_codigo', rol_codigo);
+    body = body.set('op', 'insert-usuario');    
+    return this.http.post(urlServer, body, { responseType: 'json' });
+  }
 
+  eliminarUsuario(usu_correo   ) {
+    const urlServer = this.URL + 'usuarios.php';
+    let body = new HttpParams();
+    body = body.set('usu_correo', usu_correo); 
+    body = body.set('op', 'delete-usuario');    
+    return this.http.post(urlServer, body, { responseType: 'json' });
+  }
 
 }
