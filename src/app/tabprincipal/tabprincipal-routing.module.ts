@@ -9,7 +9,7 @@ import { TabprincipalPage } from './tabprincipal.page';
         component: TabprincipalPage,
         children: [
           {
-            path: 'litarol',
+            path: 'listarol',
             children: [
               {
                 path: '',
@@ -31,7 +31,7 @@ import { TabprincipalPage } from './tabprincipal.page';
       },
       {
         path: '',
-        redirectTo: '/tabprincipal/litarol',
+        redirectTo: '/tabprincipal/listausuario',
         pathMatch: 'full'
       }
     ];

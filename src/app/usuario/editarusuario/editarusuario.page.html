@@ -39,11 +39,9 @@
               <ion-select-option  *ngFor="let item of  this.lstRol" value="{{item.rol_codigo}}">{{item.rol_nombre}}</ion-select-option>
             
             </ion-select>
-          </ion-item>
-
-       
+          </ion-item> 
         </form>
-        <ion-button expand="block" [disabled]="!objForm.valid   " (click)="registromail()"> Agregar </ion-button>
+        <ion-button expand="block" [disabled]="!objForm.valid   " (click)="actualizarUsuario()"> Guardar </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -10,7 +10,7 @@
   <p></p>
   <ion-item   *ngFor="let usu of lstUsuarios"  >
   <ion-text> {{usu.usu_correo}} </ion-text>  
-    <ion-icon name="eye-outline" slot="end" color="secondary" ></ion-icon>
+    <ion-icon (click)="actualizar(usu.usu_correo)"   name="eye-outline" slot="end" color="secondary" ></ion-icon>
     <ion-icon (click)="confirmar(usu.usu_correo)"  name="trash-outline"  slot="end" color="danger"  ></ion-icon>
   </ion-item>
 

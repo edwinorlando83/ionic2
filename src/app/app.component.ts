@@ -23,5 +23,10 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    this.platform.pause.subscribe((estado)=>{
+
+    });
   }
+
+  
 }

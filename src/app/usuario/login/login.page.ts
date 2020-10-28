@@ -39,6 +39,8 @@ export class LoginPage implements OnInit {
     });
     loading.present();
 
+ 
+
 
     this.cnx.login(this.loginForm.value.usuarionombre, this.loginForm.value.password).subscribe(
      ( resultado :any)  => {
@@ -49,10 +51,11 @@ export class LoginPage implements OnInit {
        
         }
         else{
-          let usuario = Object.assign(new MUsuario, resultado);         
-          this.router.navigateByUrl('tabprincipal');
+          let usuario = Object.assign(new MUsuario, resultado);    
+         
           localStorage.setItem("correo",resultado.usu_correo  );
           localStorage.setItem("nombre",resultado.usu_nombres );
+          this.router.navigateByUrl('tabprincipal/listausuario');
         }
 
 

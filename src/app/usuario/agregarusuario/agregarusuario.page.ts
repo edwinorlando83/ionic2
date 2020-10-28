@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx'; 
 import { AlertController, LoadingController } from '@ionic/angular';
-import { error } from 'console';
+ 
 import { ConeccionapiService } from 'src/app/coneccionapi.service';
 import { MustMatch } from 'src/app/Utils/Utils';
 
@@ -19,7 +20,8 @@ export class AgregarusuarioPage implements OnInit {
     public alertController: AlertController,
     private cnx: ConeccionapiService,
     private loadingController: LoadingController,
-    private router: Router) {
+    private router: Router,
+    private geolocation: Geolocation) {
 
     this.objForm = formBuilder.group({
       usu_correo: new FormControl('', Validators.compose([
@@ -38,6 +40,7 @@ export class AgregarusuarioPage implements OnInit {
 
   ngOnInit() {
     this.getRol();
+    this.obtenerDatosGeo();
   }
 
   getRol() {
@@ -65,6 +68,15 @@ export class AgregarusuarioPage implements OnInit {
      error=>{ console.log(error) }
 
     );
+  }
+
+  obtenerDatosGeo(){
+    this.geolocation.getCurrentPosition().then((geoposition: Geoposition) => {   
+      alert(geoposition.coords.longitude);
+      alert(geoposition.coords.latitude);
+      console.log(geoposition.coords.longitude + ' ' + geoposition.coords.latitude);
+    });
+    
   }
 
 }

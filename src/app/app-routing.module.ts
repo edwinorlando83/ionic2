@@ -30,7 +30,8 @@ const routes: Routes = [
   {
     path: 'login2',
     loadChildren: () => import('./usuario/login2/login2.module').then( m => m.Login2PageModule)
-  },  {
+  },
+  {
     path: 'tabprincipal',
     loadChildren: () => import('./tabprincipal/tabprincipal.module').then( m => m.TabprincipalPageModule)
   },
@@ -47,9 +48,9 @@ const routes: Routes = [
     loadChildren: () => import('./usuario/agregarusuario/agregarusuario.module').then( m => m.AgregarusuarioPageModule)
   },
   {
-    path: 'editarusuario',
+    path: 'editarusuario/:correo',
     loadChildren: () => import('./usuario/editarusuario/editarusuario.module').then( m => m.EditarusuarioPageModule)
-  },
+  } 
 
  
 ];
