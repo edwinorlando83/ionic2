@@ -8,8 +8,17 @@
 
   <ion-button  (click)="listaDeUsuarios()" > Actualizar </ion-button>
   <p></p>
-  <ion-item   *ngFor="let usu of lstUsuarios"  >
-  <ion-text> {{usu.usu_correo}} </ion-text>  
+  
+  <ion-item *ngFor="let usu of lstUsuarios"  >
+    <ion-avatar slot="start">
+      <img (click)="cambiarImagen(usu.usu_correo)"  src="{{usu.usu_foto}}" *ngIf="usu.usu_foto" />
+      <img (click)="cambiarImagen(usu.usu_correo)"  src="assets/noimagen.png"  *ngIf="!usu.usu_foto" />       
+    </ion-avatar>
+    <ion-label>
+      <h2>{{usu.usu_correo}}</h2>
+      <h3>{{usu.usu_nombre}}</h3>      
+    </ion-label>
+
     <ion-icon (click)="actualizar(usu.usu_correo)"   name="eye-outline" slot="end" color="secondary" ></ion-icon>
     <ion-icon (click)="confirmar(usu.usu_correo)"  name="trash-outline"  slot="end" color="danger"  ></ion-icon>
   </ion-item>

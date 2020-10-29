@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'editarusuario/:correo',
     loadChildren: () => import('./usuario/editarusuario/editarusuario.module').then( m => m.EditarusuarioPageModule)
-  } 
+  },   {
+    path: 'editarimagen/:correo',
+    loadChildren: () => import('./usuario/editarimagen/editarimagen.module').then( m => m.EditarimagenPageModule)
+  }
+
 
  
 ];

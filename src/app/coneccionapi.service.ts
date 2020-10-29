@@ -5,8 +5,8 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class ConeccionapiService {
- // URL = "http://apirest.ingenio-ti.net/";
-    URL = 'http://localhost/ionic/';
+   //  URL = "http://apirest.ingenio-ti.net/";
+    URL = 'http://192.168.100.9/ionic/';
   constructor(public http: HttpClient) {}
 
   login(inusuario, inpassword) {
@@ -65,5 +65,14 @@ export class ConeccionapiService {
     body = body.set("usu_correo", usu_correo);
     body = body.set("op", "delete-usuario");
     return this.http.post(urlServer, body, { responseType: "json" });
+  }  
+  public guardarImagen(postParams) {
+    const urlServer = this.URL + 'usuariofoto.php';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };    
+    return this.http.post(urlServer, postParams, httpOptions);
   }
 }

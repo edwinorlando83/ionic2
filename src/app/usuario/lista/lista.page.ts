@@ -65,4 +65,8 @@ export class ListaPage implements OnInit {
   actualizar(correo){
       this.router.navigateByUrl('editarusuario/'+correo);
   }
+
+  cambiarImagen(correo){
+    this.router.navigateByUrl('editarimagen/'+correo);
+  }
 }
