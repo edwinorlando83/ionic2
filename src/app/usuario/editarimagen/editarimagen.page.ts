@@ -29,7 +29,6 @@ export class EditarimagenPage implements OnInit {
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
     };
-
     this.camera.getPicture(options).then(
       (imageData) => {
         this.imageData = imageData;
@@ -41,12 +40,10 @@ export class EditarimagenPage implements OnInit {
     );
   }
   guardarInformacion() {
-
     const postParams = {
       file: this.imagen,
       correo: this.correo,
     };
-
     this.cnx.guardarImagen(postParams).subscribe(
       (res:any) => {
        
